@@ -5,7 +5,7 @@ require("dotenv").config()
 mongoose.set("strictQuery", true)
 
 async function main() {
-  await mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0.9n6oo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
+  await mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0.ylxae.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
 
   console.log("Conectado com sucesso!")
 }

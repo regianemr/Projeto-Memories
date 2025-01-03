@@ -1,4 +1,3 @@
-
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema // propriedade do mongoose //
 
@@ -11,10 +10,11 @@ const commentSchema = new Schema({
   text: {
     type: String,
     required: true,
-  }
+  },
 })
 
 const MemorySchema = new Schema(
+    
   {
     title: {
       type: String,
