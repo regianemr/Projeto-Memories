@@ -120,6 +120,7 @@ const updateMemory = async (req, res) => {
   }
 }
 
+// Favoritando memorias
 const toggleFavorite = async(req, res) => {
   try {
     const memory = await Memory.findById(req.params.id)
