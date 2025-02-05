@@ -85,6 +85,41 @@ const deleteMemory = async(req, res) => {
   }
 }
 
+// Atualizar os registros
+const updateMemory = async (req, res) => {
+  try {
+    const {title, description} = req.body
+
+    let src = null
+
+    if(req.file) {
+      src = `images/${req.file.filename}`
+    }
+
+    const memory = await Memory.findById(req.params.id)
+
+    if(!memory) {
+      return res.status(404).json({ msg: "Memória não encontrada!" })
+    }
+
+    if(src) {
+      removeOldImage(memory)
+    }
+
+    const updateData = {}
+
+    if(title) updateData.title = title
+    if(description) updateData.description = description
+    if(src) updateData.src = src
+
+    const updateMemory = await Memory.findByIdAndUpdate(req.params.id, updateData, {new: true})
+
+    res.json({updateMemory, msg: "Memória atualizada com sucesso!"})
+  } catch (error) {
+    
+  }
+}
+
 //Exportando rotas 
 
  module.exports = {
@@ -92,4 +127,5 @@ const deleteMemory = async(req, res) => {
   getMemories,
   getMemory,
   deleteMemory,
+  updateMemory,
  }
