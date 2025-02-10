@@ -4,7 +4,9 @@ import axios from '../axios-config'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 // mostar que adicionou comentário
+// import {toast} from 'react-toastify'
 
+import './Memory'
 
 const Memory = () => {
   const {id} = useParams()
